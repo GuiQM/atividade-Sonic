@@ -1,0 +1,218 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Bungee', sans-serif; 
+}
+
+html,
+body { 
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-image: linear-gradient(#0043EB, #04007E);
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+input,
+button {
+  border-radius: 5px;
+}
+
+#CadastroBtn  {
+  cursor: pointer;
+}
+
+#CadastroBtn:active {
+  background-color: #ADD8E6;
+}
+
+
+input {
+  width: 100%;
+  height: 90%;
+}
+
+
+#inputs {
+  position: relative;
+  display: grid;
+  justify-content: center;
+  top: -4%;
+  gap: 4px;
+  height: 70%;
+  width: 50%;
+}
+
+
+#facaLogin  {
+  gap: 4px;
+  display: flex;
+  font-size: 10px;
+}
+
+
+.container {
+
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  width: 500px;
+  align-items: center;
+  justify-content: center;
+  background-color: wheat;
+  border: solid black 2px;
+  border-radius: 12px;
+}
+
+#enviar {
+  height: 220%;
+}
+
+h2 {
+  position: relative;
+  top: -5%;
+}
+
+#cadastro1{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 150px;
+  width: 100%;
+}
+
+/*-------------------------------------------------------------*/
+
+
+#sonicFloor {
+  position: absolute;
+  bottom: -25%;
+  left: 0;
+  width: 100%;
+  height: 40%;
+}
+
+
+#sonic {
+  position: absolute;
+  width: 50px;
+  height: auto;
+  transform: ScaleX(-1);
+  animation: sonic-Animation infinite linear 3s;
+  bottom: 13.5%;
+  left: 0;
+}
+
+#robotnik {
+  position: absolute;
+  width: 50px;
+  height: auto;
+  transform: ScaleX(-1);
+  animation: robotnik-Animation infinite linear 3s;
+  bottom: 13.5%;
+}
+
+#moedaSonic {
+  position: absolute;
+  width: 20px;
+  height: auto;
+  animation: moeda-Animation infinite linear 3s;
+  left: 0;
+}
+
+
+@keyframes robotnik-Animation {
+  from {
+    left: -15%;
+  }
+
+  to {
+      left: 100%;
+  }
+}
+
+
+@keyframes sonic-Animation {
+  from {
+      left: -10%;
+  }
+
+  to {
+      left: 105%;
+  }
+}
+
+@keyframes moeda-Animation {
+  0% {
+      left: 0;
+      bottom: 18%;
+  }
+
+  5%  {
+      bottom: 14%;
+  }
+
+  10% {
+      bottom: 15%;
+  }
+
+  20% {
+      bottom: 20%;
+  }
+  
+  25%  {
+      bottom: 14%;
+  }
+
+  30% {
+      bottom: 15%;
+  }
+
+  40% {
+      bottom: 20%
+  }
+
+  45%  {
+      bottom: 14%;
+  }
+
+  50% {
+      bottom: 15%;
+  }
+
+  60% {
+      bottom: 20%;
+  }
+
+  65%  {
+      bottom: 14%;
+  }
+
+  70% {
+      bottom: 15%
+  }
+
+  80% {
+      bottom: 20%;
+  }
+
+  85%  {
+      bottom: 14%;
+  }
+
+  90% {
+      bottom: 15%;
+  }
+
+  100% {
+      left: 115%;
+      bottom: 13.5%
+  }
+}

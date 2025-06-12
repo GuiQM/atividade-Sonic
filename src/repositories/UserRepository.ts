@@ -1,20 +1,26 @@
 import { AppDataSource } from "../database/data-source";
-import { User } from "../model/User";
+import { User } from "../models/User";
 
 export class UserRepository {
   private repo = AppDataSource.getRepository(User);
 
   async createUser(name: string, email: string, password: string) {
     const user = new User(name, email, password);
+    user.name = name;
+    user.email = email;
+    user.password = password;
     return await this.repo.save(user);
   }
+  
 
   async findUserByEmail(email: string) {
-    return await this.repo.findOne({ where: { email } });
+    return await this.repo.findOneBy({ email });
+   
   }
 
   async findUserById(id: number) {
     return await this.repo.findOne({ where: { id } });
+    
   }
 
   async updateUser(id: number, fields: Partial<User>) {

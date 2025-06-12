@@ -9,60 +9,60 @@ export class User {
     public id!: number;
 
     @Column({ length: 100, nullable: false })
-    private _name: string;
+    public name: string;
 
     @Column({ unique: true })
-    private _email: string;
+    public email: string;
 
     @Column({ nullable: false })
-    private _password: string;
+    public password: string;
 
-    private _previousPassword?: string;
+    public previousPassword?: string;
 
     /**
      * Getter name
      * @return {string}
      */
-	public get name(): string {
-		return this._name;
+	public get nameA(): string {
+		return this.name;
 	}
 
     /**
      * Getter email
      * @return {string}
      */
-	public get email(): string {
-		return this._email;
+	public get emailA(): string {
+		return this.email;
     }
 
     /**
      * Getter password
      * @return {string}
      */
-	public get password(): string {
-		return this._password;
+	public get passwordA(): string {
+		return this.password;
 	}
 
     /**
      * Setter name
      * @param {string} value
      */
-	public set name(value: string) {
-		this._name = value;
+	public set nameA(value: string) {
+		this.name = value;
 	}
 
     /**
      * Setter email
      * @param {string} value
      */
-	public set email(value: string) {
-		this._email = value;
+	public set emailA(value: string) {
+		this.email = value;
 	}
 
 	constructor(name:string, email:string, password:string) {
-        this._name = name;
-        this._email = email;
-        this._password = password;
+        this.name = name;
+        this.email = email;
+        this.password = password;
 	}
   
 
@@ -78,7 +78,7 @@ export class User {
     @BeforeUpdate()
     async hashPasswordBeforeUpdate() {
         // ⚠️ Só re-hash se a senha tiver sido alterada
-        if (this.password !== this._previousPassword) {
+        if (this.password !== this.previousPassword) {
         const salt = await bcrypt.genSalt(10);
         this.password = await bcrypt.hash(this.password, salt);
         }
@@ -86,7 +86,7 @@ export class User {
 
     // Quando o TypeORM carregar a entidade do banco, esse método é chamado aqui pegamos a senha original antes de qualquer update
     setPreviousPassword(password: string) {
-        this._previousPassword = password;
+        this.previousPassword = password;
     }
 
     
